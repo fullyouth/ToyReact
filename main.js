@@ -9,8 +9,8 @@ class MyCompoment extends Component {
   }
 }
 
-render(<MyCompoment id="a" class="c"> dasdsad
+render(<MyCompoment id="a" class="c">
   <div>abc</div>
-  <div>123</div>dasdas
+  <div>123</div>
   <div>zhq</div>
 </MyCompoment>, document.body)
