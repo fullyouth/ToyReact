@@ -37,35 +37,41 @@ export class Component {
 }
 
 export function createElement(type, attr, ...children) {
-  let e ;
+  let e;
   if (typeof type === 'string') {
-    e = new ElementWrapper(type)
+    // html'标签
+    e = new ElementWrapper(type);
   } else {
-    e = new type
+    // 组件
+    e = new type();
   }
    
+  // 设置节点属性 或者 组件props
   for(let key in attr) {
-    e.setAttribute(key, attr[key])
+    e.setAttribute(key, attr[key]);
   } 
 
+  // 递归插入节点
   let insertChildren = (children) => {
     for(let child of children) {
       if (typeof child === 'string') {
+        // 文本节点
         child = new TextWrapper(child);
       }
       if ((typeof child === 'object') && (child instanceof Array)) {
+        // node节点 && 数组
         insertChildren(child)
       } else {
+        // 插入节点
         e.appendChild(child)
       }
     } 
   }
   
-  insertChildren(children)
-
-  return e
+  insertChildren(children);
+  return e;
 }
 
 export function render (component, element) {
-  element.appendChild(component.root)
+  element.appendChild(component.root);
 }
