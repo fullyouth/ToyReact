@@ -11,6 +11,6 @@ class MyCompoment extends Component {
 
 render(<MyCompoment id="a" class="c"> dasdsad
   <div>abc</div>
-  <div>123</div>
+  <div>123</div>dasdas
   <div>zhq</div>
 </MyCompoment>, document.body)
