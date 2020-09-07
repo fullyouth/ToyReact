@@ -59,7 +59,7 @@ export function createElement(type, attr, ...children) {
         child = new TextWrapper(child);
       }
       if ((typeof child === 'object') && (child instanceof Array)) {
-        // node节点 && 数组
+        // 处理组件props children的情况
         insertChildren(child)
       } else {
         // 插入节点
